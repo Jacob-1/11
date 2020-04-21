@@ -1,13 +1,12 @@
 # -*- coding: UTF-8 -*-
-
 import cv2
 import os
 import pdb
 
-count = 0000
-path_in = r'F:\done\AI_VideoPortraitSegmentation\AIshiping1.0.1\截帧'
+count = 0
+path_in = r'F:\doing\Pyscript\im_or_videos_transform\total'
 path = os.walk(path_in)
-path_out = r'F:\done\AI_VideoPortraitSegmentation\AIshiping1.0.1\截帧'
+path_out = r'F:\doing\Pyscript\im_or_videos_transform\total'
 crop_height_start_factor = 0.
 crop_height_stop_factor = 0.9
 sample_frames = 1
@@ -28,7 +27,9 @@ for path,dir_list,file_list in path:
                 os.makedirs(path_subfolder)
             if count%sample_frames == 0:
                 os.chdir(path_subfolder)
-                cv2.imwrite('video'+str(ind+160)+'frame' + str(count) + '.jpg',image)
+                #cv2.imwrite('video'+str(ind+160)+'frame' + '_'+ str(count).zfill(4) + '.jpg',image)
+                #cv2.imwrite(str(count).zfill(4) + '_' + str(file.split('.')[0]) + '.jpg', image)
+                cv2.imwrite(str(count).zfill(4) + '.jpg', image)
                 print('successfully written 25th frame')
             count+=1
         print('finished one video')
